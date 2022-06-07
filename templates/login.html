@@ -1,0 +1,37 @@
+{% extends "base/base.html"%}
+{% block content%}
+    {% from "macros/macroforms.html" import render_field %}
+        <!-- Contact Section-->
+        <section class="page-section margintop" id="login">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Iniciar sesion</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">                    
+                        <form name ="sendMesage" id="login-form" method="POST">
+                            <!-- Cfr -->
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <!-- Username input-->                        
+                            <div class="form-group mb-3" >
+                                {{ render_field(form.username, class ='form-control', placeholder='Ingrese su usuario')}}
+                                <p class="help-block text-danger"></p>                                                      
+                            </div>
+                            <!-- Name address input-->
+                            <div class="form-group mb-3" >
+                                {{ render_field(form.password, class ='form-control', placeholder='Ingrese su contraseña')}}                                                      
+                            </div>
+                                             
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

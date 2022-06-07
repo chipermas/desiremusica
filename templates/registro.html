@@ -1,0 +1,46 @@
+{% extends "base/base.html"%}
+{% block content%}
+    {% from "macros/macroforms.html" import render_field %}
+    <section class="page-section margintop" id="registro">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registro</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form-->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">                    
+                    <form name ="sendMesage" id="contactForm" method="POST">
+                        <!-- Cfr -->
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <!-- Username input-->                        
+                        <div class="form-group mb-3" >
+                            {{ render_field(form.username, class ='form-control', placeholder='El usuario debe tener de 4 a 8 caracteres como maximo')}}
+                            <p class="help-block text-danger"></p>                                                      
+                        </div>
+                        <!-- Name address input-->
+                        <div class="form-group mb-3" >
+                            {{ render_field(form.nombre, class ='form-control', placeholder='Ej. Juan')}}                                                      
+                        </div>
+                        <!-- Lastname number input-->
+                        <div class="form-group mb-3" >
+                            {{ render_field(form.apellido, class ='form-control', placeholder='Ej. Martinez')}}                                                      
+                        </div>
+                        <!-- Correo input-->   
+                        <div class="form-group mb-3" >
+                            {{ render_field(form.email, class ='form-control', placeholder='Usuario@gmail.com')}}                                                      
+                        </div>
+                        <div class="form-group mb-3" >
+                            {{ render_field(form.password, class ='form-control', placeholder='Ingrese una contraseña de 8 carateres, debe incluir caracteres especiales')}}                                                      
+                        </div>                   
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

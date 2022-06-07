@@ -1,0 +1,87 @@
+{% macro render_curso(cursos) %}
+    {% if session['username'] %}
+        {% if cursos %}
+        <div class="row justify-content-center">
+        {% for curso in cursos %}
+            <!-- Portfolio Item-->
+            
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/cursos/{{curso.id}}">
+                        <div class="portfolio-item mx-auto">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">Curso de {{curso.curso}}</div>
+                            </div>
+                            <img class="img-fluid" src="{{curso.imagen}}" alt="..." />
+                        </div>
+                    </a>
+                </div>
+    
+        {% endfor %}
+        </div>     
+        {% else %}
+        <h3> Nuestos servidores estan en mantenimiento. Le pedimos volver a ingresar en unos minutos</h3>                
+        {% endif %}
+    {% else %}
+        {% if cursos %}
+        <div class="row justify-content-center">
+        {% for curso in cursos %}
+            <!-- Portfolio Item-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#{{curso.curso}}">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">Curso de {{curso.curso}}</div>
+                    </div>
+                    <img class="img-fluid" src="{{curso.imagen}}" alt="..." />
+                </div>
+            </div>   
+        {% endfor %}
+        </div>     
+        {% else %}
+        <h3> Nuestos servidores estan en mantenimiento. Le pedimos volver a ingresar en unos minutos</h3>                
+        {% endif %}        
+    {% endif %}
+{%endmacro%}
+
+{% macro render_descripcion(cursos) %}
+    {% if cursos %}
+        {% for curso in cursos %}
+        <!-- Portfolio Descripcion-->        
+        <div class="portfolio-modal modal fade" id="{{curso.curso}}" tabindex="-1" aria-labelledby="{{curso.curso}}" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Curso de {{curso.curso}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-9">  
+                                            <!-- Portfolio Modal - Image-->
+                                            <img class="img-fluid rounded mb-5" src="{{curso.imagen}}" alt="..." />
+                                            <!-- Portfolio Modal - Text-->
+                                        </div>
+                                        <div class="col-3 centrar">  
+                                            <p><b>Desire Music</b> presenta el curso de <b>{{curso.curso}}</b>. <br>
+                                            {{curso.descripcion}} 
+                                            </p>
+                                            <a href="/registro" class="btn btn-xl btn-outline-dark">
+                                                Registrate!
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}

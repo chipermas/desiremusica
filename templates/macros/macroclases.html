@@ -1,0 +1,68 @@
+{% macro mostrar_clases(clases) %}
+    {% if clases %}
+        <div class="row justify-content-center">
+        {% for clase in clases %}
+            <!-- Portfolio Item-->
+            
+                <div class="col-md-6 col-lg-4 mb-5">                    
+                    <div class="portfolio-item mx-auto" id="{{clase.id}}" data-bs-toggle="modal" data-bs-target="#modal{{clase.id}}">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white">{{clase.clase}}</div>
+                        </div>
+                        <img class="img-fluid" src="{{clase.curse.imagen}}" alt="..." />
+                    </div>                    
+                </div>
+
+        {% endfor %}
+        </div>     
+    {% else %}
+    <h3> Nuestos servidores estan en mantenimiento. Le pedimos volver a ingresar en unos minutos</h3>                
+    {% endif %}
+{% endmacro %}
+
+{% macro render_descripcion(clases) %}
+    {% if clases %}
+        {% for clase in clases %}
+        <!-- Portfolio Descripcion-->        
+        <div class="portfolio-modal modal fade" id="modal{{clase.id}}" tabindex="-1" aria-labelledby="modal{{clase.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{clase.clase}}</h2>
+                                    
+                                    <!-- Portfolio Modal - Image-->
+                                        
+                                        <video id="videoWrapper" class="videoWrapper" controls >
+                                            <source src="{{clase.video}}">                                            
+                                        </video>
+                                        
+                                    <!-- Portfolio Modal - Text-->
+                                    <div class="border-modal"><h4 class="mb-4">Clase: {{clase.descripcion}}</h4></div>
+                                    
+                                    <div class="list-group margintop marginbot">
+                                        <li href="#" class="list-group-item active">
+                                            Materiales del curso
+                                        </li>
+                                        {% for archivo in clase.archivos %}
+                                            <a href="#" class="list-group-item list-group-item-action">{{archivo.url}}</a>
+                                        {% endfor %}                                            
+                                    </div>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}

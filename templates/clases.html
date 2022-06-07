@@ -1,0 +1,32 @@
+{% extends "base/base.html"%}
+{% block content%}
+{% from "macros/macroclases.html" import mostrar_clases %}
+        <!-- Contact Section-->
+        <section class="page-section portfolio margintop" id="portfolio">
+            
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Aula virtual</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <h3>Estas clases te ayudaran a tu progreso</h3>                  
+                </div>                
+                <!-- Portfolio Grid Items-->
+                {{mostrar_clases(clases)}}         
+            </div>
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Prueba de conocimiento</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <h3>Pon a prueba todo lo aprendido</h3>                  
+                </div>                
+                <!-- Portfolio Grid Items-->
+                      
+            </div>
+        </section>
+{% endblock %}
+{% block modals %}
+{% from "macros/macroclases.html" import render_descripcion %}
+    {{render_descripcion(clases)}}
+{% endblock modals %}
