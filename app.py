@@ -10,17 +10,18 @@ from models import db
 from models import User
 from models import Cursos
 from models import Clases
-from models import Archivos
+
 
 from flask import redirect
 from flask import url_for
 
 import form
-import json
 
 app = Flask(__name__)   
 app.config.from_object(DevelopmentConfig)
-
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 csrf = CSRFProtect(app)
 
@@ -100,9 +101,6 @@ def clases(idcurso):
 #Iniciador
 if __name__ == '__main__':
     csrf.init_app(app)
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
     app.run()
 
 
