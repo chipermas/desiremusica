@@ -34,8 +34,18 @@
                         <div class="form-group mb-3" >
                             {{ render_field(form.email, class ='form-control', placeholder='Usuario@gmail.com')}}                                                      
                         </div>
+                        <!-- Password input--> 
                         <div class="form-group mb-3" >
-                            {{ render_field(form.password, class ='form-control', placeholder='Ingrese una contraseña de 8 carateres, debe incluir caracteres especiales')}}                                                      
+                            <div class="row">
+                                <div class="col-11">
+                                    {{ render_field(form.password, class ='form-control', placeholder='Ingrese una contraseña de 8 carateres, debe incluir caracteres especiales')}}
+                                </div>
+                                <div class="col-1 align-self-end" >
+                                    <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                </div>
+                            </div>
+                            
+                                                                                  
                         </div>                   
                         <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Enviar</button>
                     </form>

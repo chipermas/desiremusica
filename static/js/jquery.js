@@ -32,3 +32,14 @@ $( document ).ready(function() {
 $('body').on('hidden.bs.modal', '.modal', function () {
     $('video').trigger('pause');
     });
+
+function mostrarPassword(){
+    var cambio = document.getElementById("password");
+    if(cambio.type == "password"){
+        cambio.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }else{
+        cambio.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+} 
