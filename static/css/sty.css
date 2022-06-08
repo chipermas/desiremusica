@@ -30,11 +30,7 @@
   border-style: solid;
   padding-top: 1.5em;
 }
-.background-cursos{
-  background-image: url("http://drive.google.com/uc?export=view&id=1RIiyaBmKKTLGEeeGuT4ilxWNeXiSHdZL");
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
+
 /* Loader */
 .hidden {
   overflow: hidden;
