@@ -25,11 +25,13 @@
   border: none;
 }
 .border-modal{
-  border-width: 1px;
-  border-color: gray;
-  border-style: solid;
-  padding-top: 1.5em;
+  border-width: 2px;
+  border-color: green ;
+  border-style: double;
+  border-radius: 0.5rem;  
+  padding: 1.5em;  
 }
+
 
 /* Loader */
 .hidden {
@@ -42,6 +44,13 @@
   justify-content: center;
   align-items: center;
 }
+.centrar { 
+  
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
 
 .lds-spinner {
   color: official;

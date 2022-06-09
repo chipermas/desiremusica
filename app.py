@@ -94,8 +94,9 @@ def cursos():
 def clases(idcurso):
     if 'username' in session:        
         clases = Clases.query.filter_by(curso_id = idcurso)
-        
-        return render_template('clases.html', clases = clases)
+        if clases.count() > 0:
+            return render_template('clases.html', clases = clases)
+        return redirect(url_for('cursos'))
     return redirect(url_for('login'))
 
 #Iniciador
