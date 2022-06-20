@@ -3,19 +3,17 @@
         {% if cursos %}
         <div class="row justify-content-center">
         {% for curso in cursos %}
-            <!-- Portfolio Item-->
-            
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <a href="/cursos/{{curso.id}}">
-                        <div class="portfolio-item mx-auto">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white">Curso de {{curso.curso}}</div>
-                            </div>
-                            <img class="img-fluid" src="{{curso.imagen}}" alt="..." />
+            <!-- Portfolio Item-->            
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a href="/cursos/{{curso.id}}">
+                    <div class="portfolio-item mx-auto">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white">Curso de {{curso.curso}}</div>
                         </div>
-                    </a>
-                </div>
-    
+                        <img class="img-fluid" src="{{curso.imagen}}" alt="..." />
+                    </div>
+                </a>
+            </div>    
         {% endfor %}
         </div>     
         {% else %}

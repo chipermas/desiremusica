@@ -2,11 +2,16 @@
     {% if clases %}
         <div class="row justify-content-center">
         {% for clase in clases %}
-            <!-- Portfolio Item-->
             
-                <div class="col-md-6 col-lg-4 mb-5">                    
+            <!-- Portfolio Item-->            
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="row">
+                        <div class="col-1"><h5>{{loop.index}}.</h5></div>
+                        <div class="col-11"><h5>{{clase.clase}}</h5></div>
+                    </div>                    
                     <div class="portfolio-item mx-auto" id="{{clase.id}}" data-bs-toggle="modal" data-bs-target="#modal{{clase.id}}">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            
                             <div class="portfolio-item-caption-content text-center text-white">{{clase.clase}}</div>
                         </div>
                         <img class="img-fluid" src="{{clase.curse.imagen}}" alt="..." />
